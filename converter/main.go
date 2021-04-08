@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	rc "github.com/ghostzali/romanconv"
 )
@@ -59,5 +60,6 @@ func main() {
 		default:
 			continue
 		}
+		time.Sleep(30 * time.Second)
 	}
 }

@@ -123,15 +123,15 @@ func TestParse(t *testing.T) {
 func ExampleConvert() {
 	roman := "_M_D_C_L_X_VMDCLXVI"
 	arabic, _ := Convert(roman)
-	fmt.Printf("Roman numeral %s equals to %d", roman, arabic)
-	// Output : Roman numeral "_M_D_C_L_X_VMDCLXVI" equals to 1666666
+	fmt.Printf("Roman numeral %s equals to %d\n", roman, arabic)
+	// Output: Roman numeral _M_D_C_L_X_VMDCLXVI equals to 1666666
 }
 
 func ExampleParse() {
 	arabic := 71000
 	roman, _ := Parse(arabic)
-	fmt.Printf("Arabic number %d equals to %s", arabic, roman)
-
+	fmt.Printf("Arabic number %d equals to %s\n", arabic, roman)
+	// Output: Arabic number 71000 equals to _L_X_XM
 }
 
 func BenchmarkConvert(b *testing.B) {
