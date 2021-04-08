@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	rc "github.com/ghostzali/romanconverter"
+	rc "github.com/ghostzali/romanconv"
 )
 
 func main() {
