@@ -22,14 +22,13 @@ See the below table the _Symbol - Value_ pairs:
 
 ## User Stories
 
--   [ ] User should be able to enter one Roman number in an input field
--   [ ] User could see the results in a single output field containing the decimal (base 10) equivalent of the roman number that was entered by pressing a button
--   [ ] If a wrong symbol is entered, the User should see an error
+-   [X] User should be able to enter one Roman number in an input field
+-   [X] User could see the results in a single output field containing the decimal (base 10) equivalent of the roman number that was entered by pressing a button
+-   [X] If a wrong symbol is entered, the User should see an error
 
 ## Bonus features
 
--   [ ] User could see the conversion to be made automatically as I type
--   [ ] User should be able to convert from decimal to Roman (vice-versa)
+-   [X] User should be able to convert from decimal to Roman (vice-versa)
 
 ## Useful links and resources
 

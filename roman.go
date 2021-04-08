@@ -1,4 +1,4 @@
-package romanconverter
+package romanconv
 
 import (
 	"regexp"
