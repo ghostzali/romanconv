@@ -3,6 +3,7 @@ package romanconv
 import (
 	"fmt"
 	"testing"
+	"testing/quick"
 )
 
 func TestConvert(t *testing.T) {
@@ -120,6 +121,20 @@ func TestParse(t *testing.T) {
 	})
 }
 
+func TestPropertiesOfConvertions(t *testing.T) {
+	assertion := func(arabic int) bool {
+		if arabic < 0 || arabic > 3999999 {
+			return true
+		}
+		roman, _ := Parse(arabic)
+		fromRoman, _ := Convert(roman)
+		return fromRoman == arabic
+	}
+	if err := quick.Check(assertion, nil); err != nil {
+		t.Error("convertion error", err)
+	}
+}
+
 func ExampleConvert() {
 	roman := "_M_D_C_L_X_VMDCLXVI"
 	arabic, _ := Convert(roman)
@@ -136,12 +151,18 @@ func ExampleParse() {
 
 func BenchmarkConvert(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Convert("_M_D_C_L_X_VMDCLXVI")
+		Convert("_M_M_M_C_M_X_C_I_XCMXCIX")
 	}
 }
+
+// v1.0.0: BenchmarkConvert-4   	   20828	     56474 ns/op	   60810 B/op	     386 allocs/op
+// v1.0.1: BenchmarkConvert-4   	   21126	     56476 ns/op	   60803 B/op	     386 allocs/op
 
 func BenchmarkParse(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		Parse(i)
 	}
 }
+
+// v1.0.0: BenchmarkParse-4   	 1664641	       723.1 ns/op	     148 B/op	      10 allocs/op
+// v1.0.1: BenchmarkParse-4   	48186309	        20.95 ns/op	       4 B/op	       0 allocs/op
