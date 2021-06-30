@@ -20,7 +20,7 @@ func main() {
 		fmt.Println("exit: Close the program")
 		fmt.Print(">> ")
 		option, _ := reader.ReadString('\n')
-		option = strings.Replace(option, "\n", "", -1)
+		option = strings.ReplaceAll(option, "\n", "")
 		if option == "exit" {
 			break
 		}
@@ -29,7 +29,7 @@ func main() {
 			fmt.Println("Input roman numeral:")
 			fmt.Print(">> ")
 			roman, _ := reader.ReadString('\n')
-			roman = strings.Replace(roman, "\n", "", -1)
+			roman = strings.ReplaceAll(roman, "\n", "")
 			valid := rc.Validate(roman)
 			if !valid {
 				fmt.Println("Invalid input! Please enter valid roman numeral")
@@ -45,7 +45,7 @@ func main() {
 			fmt.Println("Input decimal number")
 			fmt.Print(">> ")
 			arabic, _ := reader.ReadString('\n')
-			arabic = strings.Replace(arabic, "\n", "", -1)
+			arabic = strings.ReplaceAll(arabic, "\n", "")
 			dec, err := strconv.ParseInt(arabic, 10, 0)
 			if err != nil {
 				fmt.Println("Invalid input! Please enter arabic number")
