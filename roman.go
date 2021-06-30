@@ -87,7 +87,7 @@ func Convert(roman string) (int, error) {
 			i++
 		}
 		symbol := roman[currentIndex : currentIndex+iLength]
-		if currentIndex+(2*iLength)-1 < len(roman) && IsSubstractive(symbol) {
+		if currentIndex+(2*iLength) <= len(roman) && IsSubstractive(symbol) {
 			potentialNumber := roman[currentIndex : currentIndex+(2*iLength)]
 			value := allRomanNumerals.ValueOf(potentialNumber)
 			if value != 0 {
